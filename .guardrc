@@ -1,0 +1,19 @@
+Pry::Commands.block_command 'fastfail', "Enable fast failing specs" do
+  options = ::Guard.guards(:Sourcingrspec).runner.options  
+  options[:cli] = "--fail-fast --format nested"
+
+  options = ::Guard.guards(:Sourcingrspec).options
+  options[:cli] = "--fail-fast --format nested"
+
+  output.puts "Fast failing specs enabled"
+end
+
+Pry::Commands.block_command 'slowfail', "Enable slow failing specs" do
+  options = ::Guard.guards(:Sourcingrspec).runner.options
+  options[:cli] = "--format nested"
+  
+  options = ::Guard.guards(:Sourcingrspec).options
+  options[:cli] = "--format nested"
+
+  output.puts "Fast failing specs disabled"
+end
