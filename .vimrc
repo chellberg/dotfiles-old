@@ -25,14 +25,15 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'xolox/vim-misc'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-surround'
+Plugin 'mileszs/ack.vim'
 
 call vundle#end()
-
 
 nnoremap tl :tabnext<CR>
 nnoremap th :tabprev<CR>
 nnoremap tn :tabnew<CR>
-nnoremap tt :tabnew<CR>
+
 runtime macros/matchit.vim " Enabling the matchit plugin will enhance Vim’s built-in % command, making it possible to jump between pairs of Ruby keywords, such as class, module, def, if, do, and their corresponding end 
 
 set backup
@@ -42,6 +43,7 @@ set directory=~/.vim/tmp
 filetype on
 syntax on
 filetype indent plugin on
+
 set hlsearch
 set ignorecase
 set smartcase
@@ -59,14 +61,18 @@ set pastetoggle=<F11>
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+
 map Y y$
 nnoremap <C-L> :nohl<CR><C-L>
+
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
 map N Nzz
 map n nzz
+
 " Edit vimrc \ev
 nnoremap <silent> <Leader>ev :tabnew<CR>:e ~/.vimrc<CR>
+
 set nohidden
 set incsearch
 
@@ -81,17 +87,18 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " solarized theme settings
-set background=dark
-let g:solarized_visibility = "high"
-let g:colarized_contrast = "high"
-let g:solarized_termcolors=16
-let g:solarized_termtrans = 1
-colorscheme solarized
+" set background=dark
+" let g:solarized_visibility = "high"
+" let g:colarized_contrast = "high"
+" let g:solarized_termcolors=16
+" let g:solarized_termtrans = 1
+colorscheme 256-grayvim 
 " resizing panes
 " set winheight=30
 " set winminheight=5
 " nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
 " nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
+
 let g:ctrlp_max_height = 40
 let g:ctrlp_max_files = 20000 
 let g:ctrlp_map = '<c-p>'

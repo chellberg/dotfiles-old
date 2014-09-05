@@ -32,6 +32,7 @@ DISABLE_CORRECTION="true"
 DISABLE_AUTO_UPDATE="true"
 
 source $ZSH/oh-my-zsh.sh
+source ~/.bin/tmuxinator.zsh
 
 # -------------------------------------------------------------------
 # Git aliases
