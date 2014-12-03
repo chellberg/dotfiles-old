@@ -27,6 +27,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-surround'
 Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 
 call vundle#end()
 
@@ -61,6 +62,8 @@ set pastetoggle=<F11>
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set ttyfast
+set lazyredraw
 
 map Y y$
 nnoremap <C-L> :nohl<CR><C-L>
@@ -102,4 +105,4 @@ colorscheme 256-grayvim
 let g:ctrlp_max_height = 40
 let g:ctrlp_max_files = 20000 
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_cmd = 'CtrlP /Users/cchellberg/sourcing'

@@ -59,8 +59,8 @@ alias gf='git reflog'
 # Capistrano aliases
 # -------------------------------------------------------------------
  
-alias capd='bundle exec cap deploy'
-alias capdm='bundle exec cap deploy:migrations'
+alias capd='bundle exec cap qa deploy'
+alias capdm='bundle exec cap qa deploy:migrations'
 
 # -------------------------------------------------------------------
 # OTHER aliases
@@ -74,7 +74,7 @@ alias -s erb=vim
 alias -s rb=vim
 
 alias tks='tmux kill-server'
-alias dw='zeusd stop; rm .zeus.sock; mux start sourcing'
+alias dw='mux start sourcing'
 alias rl='cap pgbackups:capture && rake devops:db:full_reload'
 
 unsetopt correct_all
