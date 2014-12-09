@@ -77,8 +77,11 @@ if File.exist?(rails) && ENV['SKIP_RAILS'].nil?
       super
       reload_model_classes
     end
-  end
 
+    def self.rl
+      self.reload!
+    end
+  end
 
   # set logging to screen
   if ENV.include?('RAILS_ENV')

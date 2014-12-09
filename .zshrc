@@ -6,7 +6,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-export ZSH_THEME="random"
+export ZSH_THEME="simple"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -26,13 +26,23 @@ export ZSH_THEME="random"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
-plugins=(git rails ruby coffee rvm)
+plugins=(history-substring-search git brew bundler cap common-aliases jira web-search)
+JIRA_RAPID_BOARD="true" 
 
 DISABLE_CORRECTION="true"
 DISABLE_AUTO_UPDATE="true"
 
+bindkey "^[[A" up-line-or-beginning-search 
+bindkey "^[[B" down-line-or-beginning-search 
+
 source $ZSH/oh-my-zsh.sh
-source ~/.bin/tmuxinator.zsh
+
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
 
 # -------------------------------------------------------------------
 # Git aliases
