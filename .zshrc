@@ -6,7 +6,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-export ZSH_THEME="simple"
+export ZSH_THEME="miloshadzic"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -26,7 +26,7 @@ export ZSH_THEME="simple"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
-plugins=(history-substring-search git brew bundler cap common-aliases jira web-search)
+plugins=(history-substring-search git tmux rvm)
 JIRA_RAPID_BOARD="true" 
 
 DISABLE_CORRECTION="true"
@@ -86,7 +86,8 @@ alias -s rb=vim
 alias tks='tmux kill-server'
 alias dw='mux start sourcing'
 alias rl='cap pgbackups:capture && rake devops:db:full_reload'
-
+alias rdbm='rake db:migrate'
+alias rdbtp='rake db:test:prepare'
 unsetopt correct_all
 
 export EDITOR='vim'
