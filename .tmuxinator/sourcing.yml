@@ -1,0 +1,44 @@
+# ~/.tmuxinator/sourcing.yml
+
+name: sourcing
+root: ~/sourcing
+
+pre: |
+  clear
+
+  echo "*** Changing Directory ...";
+  cd ~/sourcing;
+  pwd;
+  echo "";
+
+  echo "*** Killing Elasticsearch ...";
+  pkill -9 -lf 'config/elasticsearch.yml';
+  echo "";
+
+  echo "*** Killing Rails Server ...";
+  pkill -9 -lf 'server.*0\.0\.0\.0';
+  echo "";
+
+  echo "*** Killing Mailcatcher ...";
+  pkill -9 -lf 'mailcatcher';
+  echo "";
+
+  echo "*** Running Bundle Install ...";
+  bundle install;
+  echo "";
+
+windows:
+  - Shell: clear; git status
+  - Console: 
+      layout: main-vertical
+      panes:
+        - clear; pry -r ./config/environment
+        - clear; bin/rails server -b 0.0.0.0 -p 5100 -e development
+  - Log: clear; tail -f -n 100 log/development.log
+  - Specs: 
+      layout: main-vertical
+      panes:
+        - clear; bundle exec guard start -g specs
+        - clear; foreman start -c mail=1,worker=1,elasticsearch=1,memcached=1,executor=1
+  - Services: clear; bundle exec guard start -g ctags
+
